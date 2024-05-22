@@ -5,80 +5,6 @@
 -- this file will be reloaded if it changes during gameplay,
 -- 	so only assign to values or define things here.
 
-Outlines =
-{
-	-- Default outline, used if anything goes wrong and in places like chaos realm.
-	Default =
-	{
-		R = 50,
-		G = 50,
-		B = 255,
-		Opacity = 0.8,
-		Thickness = 1,
-		Threshold = 0.6,
-	},
-	-- Erebus
-	F =
-	{
-		R = 50,
-		G = 50,
-		B = 255,
-		Opacity = 0.8,
-		Thickness = 1,
-		Threshold = 0.6,
-	},
-	-- Oceanus
-	G =
-	{
-		R = 50,
-		G = 50,
-		B = 255,
-		Opacity = 0.8,
-		Thickness = 1,
-		Threshold = 0.6,
-	},
-	-- Fields of Mourning
-	H =
-	{
-		R = 50,
-		G = 50,
-		B = 255,
-		Opacity = 0.8,
-		Thickness = 1,
-		Threshold = 0.6,
-	},
-	-- Tartarus
-	I =
-	{
-		R = 50,
-		G = 50,
-		B = 255,
-		Opacity = 0.8,
-		Thickness = 1,
-		Threshold = 0.6,
-	},
-	-- Ephyra
-	N =
-	{
-		R = 50,
-		G = 50,
-		B = 255,
-		Opacity = 0.8,
-		Thickness = 1,
-		Threshold = 0.6,
-	},
-	-- Rifts of Thelassy
-	O =
-	{
-		R = 50,
-		G = 50,
-		B = 255,
-		Opacity = 0.8,
-		Thickness = 1,
-		Threshold = 0.6,
-	},
-}
-
 function IsOutlineLegal(unit)
 	if unit.ObjectId == CurrentRun.Hero.ObjectId then
 		return true
@@ -101,14 +27,14 @@ end
 
 function StartOver_wrap(base, args)
 	base(args)
-	CurrentRun.Hero.Outline = Outlines[CurrentRun.CurrentRoom.RoomSetName] or Outlines.Default
+	CurrentRun.Hero.Outline = modutil.mod.Table.Copy.Deep(config.Outlines[CurrentRun.CurrentRoom.RoomSetName]) or modutil.mod.Table.Copy.Deep(config.Outlines.Default)
 	CurrentRun.Hero.Outline.Id = CurrentRun.Hero.ObjectId
 	AddOutline(CurrentRun.Hero.Outline)
 end
 
 function CreateLevelDisplay_wrap(newEnemy, currentRun)
 	if IsOutlineLegal(newEnemy) then
-		newEnemy.Outline = Outlines[CurrentRun.CurrentRoom.RoomSetName] or Outlines.Default
+		newEnemy.Outline = modutil.mod.Table.Copy.Deep(config.Outlines[CurrentRun.CurrentRoom.RoomSetName]) or modutil.mod.Table.Copy.Deep(config.Outlines.Default)
 		newEnemy.Outline.Id = newEnemy.ObjectId
 		game.AddOutline(newEnemy.Outline)
 	end
@@ -116,7 +42,7 @@ end
 
 function DoEnemyHealthBufferDeplete_wrap(enemy)
 	if IsOutlineLegal(enemy) then
-		enemy.Outline = Outlines[CurrentRun.CurrentRoom.RoomSetName] or Outlines.Default
+		enemy.Outline = modutil.mod.Table.Copy.Deep(config.Outlines[CurrentRun.CurrentRoom.RoomSetName]) or modutil.mod.Table.Copy.Deep(config.Outlines.Default)
 		enemy.Outline.Id = enemy.ObjectId
 		game.AddOutline(enemy.Outline)
 	end
@@ -130,7 +56,7 @@ function WeaponLobAmmoDrop_override(triggerArgs, weaponDataArgs)
 	local consumable = CreateConsumableItem( consumableId, "LobAmmoPack" )
 	local ammoDropData = weaponDataArgs.DropForces
 	--MOD START
-	consumable.Outline = Outlines[CurrentRun.CurrentRoom.RoomSetName] or Outlines.Default
+	consumable.Outline = modutil.mod.Table.Copy.Deep(config.Outlines[CurrentRun.CurrentRoom.RoomSetName]) or modutil.mod.Table.Copy.Deep(config.Outlines.Default)
 	consumable.Outline.Id = consumable.ObjectId
 	AddOutline(consumable.Outline)
 	--MOD END

@@ -9,7 +9,7 @@
 
 -- modutil.mod.LoadOnce(function()
 -- 	if CurrentRun.Hero.Outline == nil then
--- 		CurrentRun.Hero.Outline = Outlines[CurrentRun.CurrentRoom.RoomSetName] or Outlines.Default
+-- 		CurrentRun.Hero.Outline = config.Outlines[CurrentRun.CurrentRoom.RoomSetName] or config.Outlines.Default
 -- 		CurrentRun.Hero.Outline.Id = CurrentRun.Hero.ObjectId
 -- 		AddOutline(CurrentRun.Hero.Outline)
 -- 	end
@@ -18,7 +18,7 @@
 OnAnyLoad{
 	function (triggerArgs)
 		if CurrentRun.Hero ~= nil then
-			CurrentRun.Hero.Outline = Outlines[CurrentRun.CurrentRoom.RoomSetName] or Outlines.Default
+			CurrentRun.Hero.Outline = modutil.mod.Table.Copy.Deep(config.Outlines[CurrentRun.CurrentRoom.RoomSetName]) or modutil.mod.Table.Copy.Deep(config.Outlines.Default)
 			CurrentRun.Hero.Outline.Id = CurrentRun.Hero.ObjectId
 			AddOutline(CurrentRun.Hero.Outline)
 		end
