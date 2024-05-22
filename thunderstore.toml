@@ -3,7 +3,7 @@ schemaVersion = "0.0.1"
 
 
 [package]
-namespace = "PonyWarrior"
+namespace = "PonyWarrior    "
 name = "Colorblind"
 versionNumber = "0.0.0"
 description = "Helps colorblind players by adding outlines to enemies and traps, configurable."
