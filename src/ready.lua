@@ -7,18 +7,10 @@
 -- 	so you will most likely want to have it reference
 --	values and functions later defined in `reload.lua`.
 
--- modutil.mod.LoadOnce(function()
--- 	if CurrentRun.Hero.Outline == nil then
--- 		CurrentRun.Hero.Outline = config.Outlines[CurrentRun.CurrentRoom.RoomSetName] or config.Outlines.Default
--- 		CurrentRun.Hero.Outline.Id = CurrentRun.Hero.ObjectId
--- 		AddOutline(CurrentRun.Hero.Outline)
--- 	end
--- end)
-
-OnAnyLoad{
+OnAnyLoad {
 	function (triggerArgs)
 		if CurrentRun.Hero ~= nil then
-			CurrentRun.Hero.Outline = modutil.mod.Table.Copy.Deep(config.Outlines[CurrentRun.CurrentRoom.RoomSetName]) or modutil.mod.Table.Copy.Deep(config.Outlines.Default)
+			CurrentRun.Hero.Outline = GetOutline()
 			CurrentRun.Hero.Outline.Id = CurrentRun.Hero.ObjectId
 			AddOutline(CurrentRun.Hero.Outline)
 		end
