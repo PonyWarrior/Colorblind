@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "PonyWarrior"
 name = "Colorblind"
-versionNumber = "0.1.0"
+versionNumber = "0.1.1"
 description = "Helps colorblind players by adding outlines to enemies and traps, configurable."
 websiteUrl = "https://github.com/PonyWarrior/Colorblind"
 containsNsfwContent = false
