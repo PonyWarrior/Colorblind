@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2024-05-24
+
 ## [0.1.1] - 2024-05-23
 
 ### Fixed
@@ -19,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First version of the mod!
 
-[unreleased]: https://github.com/PonyWarrior/Colorblind/compare/0.1.1...HEAD
+[unreleased]: https://github.com/PonyWarrior/Colorblind/compare/0.1.2...HEAD
+[0.1.2]: https://github.com/PonyWarrior/Colorblind/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/PonyWarrior/Colorblind/compare/0.1.0...0.1.1
 [0.1.0]: https://github.com/PonyWarrior/Colorblind/compare/9972b71e22c3add093ab39f394be5b7f37f3f645...0.1.0
