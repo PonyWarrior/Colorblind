@@ -97,7 +97,7 @@ end)
 
 modutil.mod.Path.Wrap("SirenKillPresentation", function(base, unit, args)
 	game.RemoveOutline({ Id = unit.ObjectId })
-	return base()
+	return base(unit, args)
 end)
 
 modutil.mod.Path.Wrap("ScyllaKillPresentation", function(base, unit, args)
